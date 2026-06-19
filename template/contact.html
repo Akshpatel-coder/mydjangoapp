@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>CONTACT PAGE</H1>
+    {% include 'menu.html' %}
+    <form method="POST" action="/contactcalc/">
+        {% csrf_token %}
+        No1 : <input type="number" min="1" max="100"
+        name="txt1" required autocomplete="off"/>
+        No2: <input type="number" name="txt2" 
+        min="1" max="100" autocomplete="off"/>
+        <input type="submit"/>
+    </form>
+
+    <form method="post" action="/process/" >
+    {% csrf_token %}
+    To : <input type="text" name="txt1" />
+    Subject : <input type="text" name="txt2" />
+    Body :<input type="text" name="txt3" />
+   <input type="submit" />
+</form>
+
+<h3>Contact Us</h3>
+<form method="post" action="/contactprocess/">
+    {% csrf_token %}
+    Name : <input type="text" name="txt1" /> <br/>
+    Email : <input type="email" name="txt2" /> <br/>
+    Message : <input type="text" name="txt3" /> <br/>
+   <input type="submit" />
+</form>
+</body>
+</html>
