@@ -11,7 +11,7 @@ import random
 def contactpageview(request):
     return render(request, 'contact.html')
 
-def addstudent(request):
+def addstudentform(request):
     return render(request, 'add-student.html')
 
 def addstudentformprocess(request):
@@ -116,10 +116,11 @@ def logout(request):
     del request.session['myemail']
     return redirect(loginpage)
 
-def addstudentformprocess(request):
-    txt1 = request.POST['txt1']
-    txt2 = request.POST['txt2']
-    txt3 = request.POST['txt3']
-    txt4 = request.POST['txt4']
-    Student.objects.create(name=txt1, mobile=txt2, email=txt3, address=txt4)
-    return HttpResponse("Thank you for Signup")
+def displayStudent(request):
+    mydata = Student.objects.all()
+    return render(request, 'display-student.html', {'mydata': mydata})
+
+
+def deleteStudent(request, id):
+    Student.objects.filter(id=id).delete()
+    return redirect(displayStudent)

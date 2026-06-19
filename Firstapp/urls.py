@@ -30,7 +30,9 @@ urlpatterns = [
 
     path('process/', views.mailsendprocess, name='process'),
     path('contactpageprocess/', views.contactpageprocess),
-    path('addstudent/', views.addstudent),
+    path('addstudent', views.addstudentform),
     path('add-student-process/', views.addstudentformprocess),
+    path('display-student/', views.displayStudent),
+    path('delete-student/<int:id>/', views.deleteStudent),
     path('maildemo', views.mailsenddemo),
 ]

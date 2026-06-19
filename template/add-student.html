@@ -7,6 +7,7 @@
 </head>
 <body>
      <form method="post" action="/add-student-process/">
+        {% csrf_token %}
         Name: <input type="text" name="txt1"/>
         Mobile: <input type="text" name="txt2"/>
         Email: <input type="email" name="txt3"/>
